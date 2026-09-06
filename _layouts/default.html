@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b6b6b;
+    --line: #e4e4e4; --accent: #2f6fde; --code-bg: #f5f5f5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101114; --fg: #d9dade; --muted: #8b8d94;
+      --line: #26282e; --accent: #7aa5f0; --code-bg: #1a1c21;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
+                 system-ui, -apple-system, sans-serif;
+    line-height: 1.85; font-size: 1.02rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  header.site {
+    max-width: 42em; margin: 0 auto; padding: 1.6em 1.2em 0;
+  }
+  header.site a {
+    color: var(--muted); text-decoration: none;
+    font-size: .92rem; letter-spacing: .08em;
+  }
+  header.site a:hover { color: var(--accent); }
+  main {
+    max-width: 42em; margin: 0 auto; padding: 1em 1.2em 4em;
+  }
+  h1 { font-size: 1.55rem; line-height: 1.4; margin: 1.2em 0 .2em; }
+  h2 { font-size: 1.22rem; margin: 2.2em 0 .6em; }
+  h3 { font-size: 1.05rem; margin: 1.8em 0 .5em; }
+  time.meta { color: var(--muted); font-size: .88rem; }
+  a { color: var(--accent); }
+  blockquote {
+    margin: 1em 0; padding: .1em 1em; border-left: 3px solid var(--line);
+    color: var(--muted);
+  }
+  pre, code {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    background: var(--code-bg); border-radius: 6px;
+  }
+  code { padding: .12em .38em; font-size: .9em; }
+  pre { padding: .9em 1em; overflow-x: auto; line-height: 1.6; }
+  pre code { padding: 0; background: none; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 2.4em 0; }
+  ul.posts { list-style: none; padding: 0; }
+  ul.posts li { margin: .9em 0; }
+  ul.posts time { color: var(--muted); font-size: .88rem; margin-right: 1em; }
+  footer.site {
+    max-width: 42em; margin: 0 auto; padding: 0 1.2em 3em;
+    color: var(--muted); font-size: .85rem;
+    border-top: 1px solid var(--line); padding-top: 1.2em;
+  }
+  footer.site a { color: var(--muted); }
+</style>
+</head>
+<body>
+<header class="site"><a href="{{ site.baseurl }}/">◆ 玄凜閣開發日誌</a></header>
+<main>
+{% if page.title %}<h1>{{ page.title }}</h1>{% endif %}
+{% if page.date %}<time class="meta" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>{% endif %}
+{{ content }}
+</main>
+<footer class="site">
+  玄凜閣——社群自營的遊戲與系統開發。
+  <a href="https://rin-node.net/">rin-node.net</a>
+</footer>
+</body>
+</html>

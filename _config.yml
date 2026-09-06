@@ -1,0 +1,10 @@
+title: 玄凜閣開發日誌
+description: 玄凜閣的公開開發紀錄——數字全部是量出來的，不是估的。
+url: "https://rin-413.github.io"
+baseurl: "/xuanlin-devlog"
+lang: zh-Hant
+timezone: Asia/Taipei
+permalink: /:year/:month/:day/:title/
+# GitHub Pages 用內建 Jekyll 直接 build，不需要本地環境——
+# push markdown 即發布，這是選它當正本的理由。
+markdown: kramdown
